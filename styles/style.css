@@ -1,0 +1,18 @@
+﻿.btn {  
+    border: 0 none;
+    letter-spacing: 1px;
+    width:95px;
+}
+
+#dials{
+    align-content:center;
+    padding:40px;
+}
+
+#bntExtra{
+    background-color:aquamarine;
+}
+ 
+/*.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}*/

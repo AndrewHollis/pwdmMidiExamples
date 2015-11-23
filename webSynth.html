@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="scripts/Tone.js"></script>
+	<script type="text/javascript" src="./scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/nexusUI.js"></script>
+    <script type="text/javascript" src="scripts/MidiTools.js"></script>
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="Content">
+        <div class="jumbotron"><h1>Web Midi Synth</h1></div>
+        
+         <div class="row">
+                         <div class="col-md-6"></div>
+              <div class="col-md-6">
+                <a href="index.html">Index</a> * 
+                <a href="webSynth.html">MIDI Web Synth</a> *
+                <a href="A3000Remote.html">A3000 Remote</a>
+            </div>
+
+        <div class="row"  id="selectMidi">            
+            <div id="getInput" class="col-md-6">
+                Select Input:
+                <select name="inputs" id="listInputs"></select>
+                <button type="button" onclick="selectInputIndex()">Select Input</button>
+            </div>
+        </div>
+
+        <div id="monoSynth" class="row">
+            <div id="oscillator" class="col-md-2">
+                <h4>Oscillator</h4>
+                <!--No spaces in choices as it passes the space as well-->
+                <canvas nx="select" id="oscillatorType" choices="sine,square,triangle,sawtooth,pwm,pulse"></canvas>
+                <canvas nx="dial" id="detune" text="detune"></canvas>
+            </div>
+
+            <div id="amplitudeEnvelope" class="col-md-2">
+                <h4>Amp Envelope</h4>                
+                <canvas nx="slider" id="attack"></canvas>
+                <canvas nx="slider" id="decay"></canvas>
+                <canvas nx="slider" id="sustain"></canvas>
+                <canvas nx="slider" id="release"></canvas>
+            </div>
+
+            <div id="filter" class=" col-md-3">
+                <h4>Filter</h4>
+                <canvas nx="select" id="filterTypes" choices="lowpass,highpass,bandpass,peaking"></canvas>    
+                <canvas nx="select" id="filterDecibels" choices="-12, -24, -48"></canvas>     
+                cut                                 
+                <canvas nx="dial" id="cutoff"></canvas>
+            </div>
+
+            <div id="filterEnvelope" class="col-md-2">
+                <h4>Filter Envelope</h4>
+                <canvas nx="slider" id="filterAttack"></canvas>
+                <canvas nx="slider" id="filterDecay"></canvas>
+                <canvas nx="slider" id="filterSustain"></canvas>
+                <canvas nx="slider" id="filterRelease"></canvas>
+            </div>
+
+            <div id="output" class="col-md-2">
+                <h4>Main</h4>                
+                <canvas nx="dial" id="volume"></canvas>
+                Delay
+                <canvas nx="dial" id="delayWetDry"></canvas>
+                <canvas nx="dial" id="portmento"></canvas>
+
+                <canvas nx="ghost"></canvas>
+            </div>                        
+        </div>
+	</div>
+
+    <script type="text/javascript">
+        //var data, cmd, channel, type, note, velocity;
+
+        //TODO Refactor
+
+        //TODO Add JSON Presets
+        //var presets = JSON.parse();
+
+        //TODO update interface on load to reflect settings
+
+        //TODO Change Midi drop downs to select input on select
+        //TODO Remove Midi Output functionality
+        //TODO Add MIDI CC to tone.js
+        //----MonoSynth Set up.
+        //TODO Add effects control to UI
+        //TODO Add more effects; Chorus and Distortion
+
+        var pingPong = new Tone.PingPongDelay("8n", 0.2).toMaster();
+        pingPong.wet.value = 0.01;
+
+        //TODO Add preset functionality
+        var synth = new Tone.MonoSynth({
+            "oscillator": { "type": "sine" },
+            "envelope": {"attack": 0.01,
+                         "decay": 0.2,
+                         "sustain": 0.4,
+                         "release": 0.2,
+            }
+        }).connect(pingPong);
+
+        //----Nexus UI Set up.
+        nx.onload = function () {
+            nx.colorize("#0af");
+
+            attack.set({ value: 0.01 });
+
+            for (var key in nx.widgets) {
+                with (nx.widgets[key]) {
+                    on('*', function (data) {
+                        // code that will be executed
+                    })
+                }
+            }
+
+            //---Oscillator Controls
+            oscillatorType.on('*', function (data) {
+                synth.oscillator.set("type", data.text);
+            })
+
+            detune.on('*', function (data) {
+                synth.oscillator.set("detune", data.value * 100); 
+            })
+
+            //---Amp Envelope Controls
+            attack.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.envelope.set("attack", scaled);
+            })
+
+            decay.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.envelope.set("decay", scaled);
+            })
+
+            sustain.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.envelope.set("sustain", scaled);
+            })
+
+            release.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.envelope.set("release", scaled);
+            })
+
+            //---Filter Controls
+            cutoff.on('*', function (data) {
+                synth.filter.set("frequency", data.value * 18000); //Needs adjusting
+            })
+
+            filterTypes.on('*', function (data) {
+                synth.filter.set("type", data.text);
+            })
+
+            //---Filter Envelope Controls
+            filterAttack.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.filterEnvelope.set("attack", scaled);
+            })
+
+            filterDecay.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.filterEnvelope.set("decay", scaled);
+            })
+
+            filterSustain.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.filterEnvelope.set("sustain", scaled);
+            })
+
+            filterRelease.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.filterEnvelope.set("release", scaled);
+            })
+
+            //---Main Controls
+            //TODO Volume control not working, need to add a gain node between monosynth and master.
+            volume.on('*', function (data) {
+                console.log("Volume" + data.value);
+                synth.set("volume", data.value);
+            })
+
+            delayWetDry.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                pingPong.set("wet", scaled);
+            })
+
+            portmento.on('*', function (data) {
+                var scaled = Math.pow(data.value, 2);
+                synth.set("portamento", scaled);
+            })
+
+        }
+	</script>
+
+</body>
+</html>

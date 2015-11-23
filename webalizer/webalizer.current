@@ -1,0 +1,187 @@
+# Webalizer V2.01-09 Incremental Data - 11/22/2015 00:24:27
+2015 11 22 0 24 27
+182 104 11 6 4 8 4450642 32 13 0
+1 7 68 15 22
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+51 20 680010 1 8 1
+95 55 2619249 3 15 3
+16 13 569451 5 3 3
+9 7 286024 3 2 2
+3 2 10134 3 2 2
+0 0 0 0 0 0
+1 1 7526 1 1 1
+7 6 278248 1 1 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+14 12 556517 2
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 1 7526 1
+0 0 0 0
+1 1 7526 1
+0 0 0 0
+2 1 7755 1
+2 1 7755 1
+0 0 0 0
+0 0 0 0
+68 41 1411238 11
+6 6 272870 1
+1 1 2379 1
+14 2 13328 2
+0 0 0 0
+0 0 0 0
+0 0 0 0
+8 6 283656 1
+0 0 0 0
+58 26 958279 9
+7 6 921813 1
+0 0 0 0
+0
+0
+0
+104
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+44
+0
+0
+0
+0
+0
+0
+33
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+# -urls- 
+/scripts/nexusUI.js
+0 22 0 1147238 0 0
+/
+0 32 0 66321 13 4
+/scripts/MidiTools.js
+0 23 0 28817 0 0
+/scripts/jquery.min.js
+0 23 0 585727 0 0
+/styles/bootstrap.min.css
+0 26 0 458577 0 0
+/scripts/Tone.js
+0 22 0 1995426 0 0
+# End Of Table - urls
+# -sites- (monthly)
+crawl-66-249-67-117.googlebot.com
+0 1 0 5376 0 0
+-
+win-rk9527qmcou
+0 2 2 15052 2 1448079905
+/
+crawl-66-249-67-111.googlebot.com
+0 1 1 2379 1 1447925632
+/
+crawl-66-249-78-44.googlebot.com
+0 2 0 10752 0 0
+-
+crawl-66-249-78-37.googlebot.com
+0 1 1 2379 1 1447790128
+/
+crawl-66-249-64-147.googlebot.com
+0 1 1 2379 1 1447944880
+/
+crawl-66-249-78-30.googlebot.com
+0 7 6 278280 1 1447836107
+/
+cpc22-cmbg14-2-0-cust208.5-4.cable.virginm.net
+0 7 6 278248 1 1448151865
+/
+0x5553510f.adsl.cybercity.dk
+0 79 34 1249876 4 1447882994
+/
+185.19.132.84
+0 74 47 1684108 1 1447679708
+/
+213-229-68-231.static.as29550.net
+0 7 6 921813 1 1447711495
+/
+# End Of Table - sites (monthly)
+# -sites- (daily)
+cpc22-cmbg14-2-0-cust208.5-4.cable.virginm.net
+0 7 6 278248 1 1448151865
+/
+# End Of Table - sites (daily)
+# -referrers- 
+http://d32083202.u207.surf-town.net/
+0 103
+http://pwdm.dk/
+1 11
+https://www.google.com/
+0 1
+http://d31747737.u207.surf-town.net/
+0 32
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0+(Linux;+Android+5.0.2;+K01E+Build/LRX22G)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/46.0.2490.76+Safari/537.36
+0 7
+Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10_9_5)+AppleWebKit/600.7.12+(KHTML,+like+Gecko)+Version/7.1.7+Safari/537.85.16
+0 7
+Mozilla/5.0+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html)
+0 12
+Mozilla/5.0+(Macintosh;+Intel+Mac+OS+X+10.8;+rv:21.0)+Gecko/20100101+Firefox/21.0
+0 1
+Mozilla/5.0+(Windows+NT+10.0;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/46.0.2490.86+Safari/537.36
+0 79
+Mozilla/5.0+(iPhone;+CPU+iPhone+OS+8_3+like+Mac+OS+X)+AppleWebKit/600.1.4+(KHTML,+like+Gecko)+Version/8.0+Mobile/12F70+Safari/600.1.4+(compatible;+Googlebot/2.1;++http://www.google.com/bot.html)
+0 1
+Mozilla/5.0+(Windows+NT+6.2;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/32.0.1667.0+Safari/537.36
+0 1
+Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/46.0.2490.86+Safari/537.36
+0 74
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
+# -Error404- 
+# End Of Table - Error404-
